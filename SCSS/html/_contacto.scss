@@ -1,0 +1,130 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+@import "../abstracts/extends";
+
+
+.contactBg{
+    background-image: url('../images/runBg.jpg');/* Img de fondo de la sección */
+    background-size: cover; /* Para cubrir todo el fondo */
+    background-position: center; /* Para centrar la imagen */
+    background-repeat: no-repeat; /* Para que no se repita la img */
+    
+    main {     
+        /* -------------------------- SECCIÓN CONTACTO -----------------------*/ 
+        .containerContacto {
+            .containerNosotros {                
+                .containerInternoMapa { 
+                    /* Para separar los contenedores entre si y de los bordes */
+                    margin: 15px 15px 60px 15px;
+                    
+                
+                        .mapDiv {
+                            /* Propiedades del fondo del contenedor del mapa */                            
+                            @include hyw(340px, 100%);/*Mixin de Height y Width*/
+                            background-color: #f5f5f588;
+                            box-shadow: $shadowSoft;
+                            
+                            /* Propiedades del tamaño del mapa */
+                            .map {                               
+                                @include hyw(100%, 100%); /*Mixin de Height y Width*/
+                                @include myp(0, 15px 10px); /* Mixin- Margin y Padding */                                
+                            }
+                        }
+                        .datosDiv {
+                             /* Propiedades del contenedor de datos de contacto */
+                            background-color: #f5f5f588;                            
+                            @include hyw(160px, 100%);/*Mixin de Height y Width*/                            
+                            @include myp(10px 0 0 0, 10px 0);/* Mixin- Margin y Padding */                            
+                            box-shadow: $shadowSoft;
+
+                            p {
+                                /* Propiedades del contenedor de texto de datos de contacto */                                
+                                @include myp(15px 0, 5px);/* Mixin- Margin y Padding */
+                                color: $colorH; 
+                                background-color:$colorPrincipalStrong;
+                                   
+                                img {
+                                    /* Propiedades del icono del texto de datos de contacto */
+                                   height: 25px;
+                                   margin: 5px;  
+                                }  
+                            }
+                        }
+                    }
+            
+                .containerForm2 {
+                    /* Espaciado entre contenedores */
+                    margin: 15px;
+                
+                .formDiv {
+                    /* Propiedades del contenedor del form */
+                    height: 510px;
+                    box-shadow: $shadowSoft;
+                    background-color: #f5f5f588;
+                    @include myp(0, 15px);/* Mixin- Margin y Padding */                                       
+                    
+                    h2 {  
+                        /* Corrección de valores del h2 */
+                        color: $colorH; 
+                        background-color:$colorPrincipalStrong;
+                        margin-bottom: 20px;
+                        border-radius: 10px;
+                    }
+
+                    .formNosotros {
+                        /* Asigno estilos a los input */
+                        .inputNosotros {                            
+                            opacity: 60%;
+                            transition: opacity 0.3s;                              
+                        }
+                            .inputNosotros:hover {
+                                opacity: 100%; 
+                                box-shadow: $shadowMed;                             
+                            }
+                            .inputNosotros:focus {
+                                opacity: 100%;   
+                                box-shadow: $shadowMed;  
+                                border: 2px solid $colorSecundario;                          
+                            }
+                            .inputNosotros:active {
+                                opacity: 100%;    
+                                box-shadow: $shadowMed; 
+                                border: 2px solid $colorPrincipal;                          
+                            }
+                                                
+                        .textareaNosotros {
+                            /* Para que el text area del form no sea ajustable */
+                            resize: none;
+                            height: 190px;
+                        }
+                    
+                        .buttonContainerNosotros{
+                            
+                            /* Propiedades de los botones */
+                            .buttonContactoS, .buttonContactoR {      
+                                display: inline;                          
+                                background-color: $colorPrincipal;
+                                border: $colorPrincipal; 
+                               
+                                @include borderCreator(0,15px,0,15px);  /*Mixin de estilos de vértices radiales*/                                                            
+                            }
+                            .buttonContactoS:hover, .buttonContactoR:hover {
+                                opacity: 0.6;
+                                transition: opacity 0.5s ease;    
+                            }
+                            .buttonContactoS:active, .buttonContactoR:active {
+                               
+                                border: 2px solid $colorPrincipalStrong;                                                
+                                color: $colorPrincipalStrong;
+                                background-color: transparent;
+                                box-shadow: $shadowButton;
+                                font-weight:500;       
+                            }
+                        }    
+                    }
+                }                
+                }
+            }
+        }
+    }
+}

@@ -1,18 +1,12 @@
 @charset "UTF-8";
 /* IMPORTS */
 /* PALETA DE COLORES */
-/* FUENTES */
-/* SHADOW BOX */
 /* Back up de colores; */
 /* $colorBackground: #faebd7 */
 /* Asignar Margin y Padding */
 /*Mixin de estilos de vértices radiales*/
 header nav .container-fluid {
   /* Ubicación y propiedades del NAV*/
-  margin-top: -8px; /* Corrección de desfase*/
-  background-color: #F58700;
-  border-bottom: 3px solid #ffab45; /* Borde en la parte inferior */
-  box-shadow: 0px 3px 10px rgba(2, 1, 1, 0.3); /* Sombra en la parte inferior */
 }
 header nav .container-fluid .indexLogoLink {
   width: 150px; /* Corrección de espaciado entre menú hambruguesa y logo*/
@@ -66,8 +60,6 @@ header nav .container-fluid div li .nav-link.active, header nav .container-fluid
 }
 
 /* PALETA DE COLORES */
-/* FUENTES */
-/* SHADOW BOX */
 /* Back up de colores; */
 /* $colorBackground: #faebd7 */
 footer {
@@ -91,79 +83,60 @@ footer div div.imgFooter a:hover {
 }
 
 /* PALETA DE COLORES */
-/* FUENTES */
-/* SHADOW BOX */
 /* Back up de colores; */
 /* $colorBackground: #faebd7 */
 /* Asignar Margin y Padding */
 /*Mixin de estilos de vértices radiales*/
 main .profContainer {
-  /* Propiedades del contenedor de las imagenes de la sección */
   margin: 20px 0px;
   background-color: #f5f5f5;
   box-shadow: 0px 0px 10px rgba(2, 1, 1, 0.1); /* Sombra en la parte inferior */
 }
 main .profContainer div {
-  /* Espaciado y centrado de los contenedores */
   /*Mixin de Margin y Padding*/
-  margin: 0;
-  padding: 10px;
+  margin: 20px 40px;
+  padding: 30px;
   /* Mixin- Margin y Padding */
   justify-content: center; /* Para centrar los elementos horizontalmente */
 }
 main .profContainer div .faceImg {
-  /* Propiedades del contenedor de la img */
-  position: relative; /* Para que el texto pueda ubicarse encima de la img */
-  margin: 60px 30px;
-  min-height: 300px;
-  min-width: 300px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
 }
-main .profContainer div .faceImg .img-fluid {
-  /* Para que el hover de la img se adapte a la forma redonda */
-  border-radius: 50%;
-}
-main .profContainer div .faceImg .textImgEvento {
-  transition: opacity 0.3s;
-  /* Propiedades del contenedor del texto */
-  text-shadow: 2px 2px 5px rgba(1, 1, 1, 0.5);
-  font-family: "Barlow Condensed", sans-serif;
-  visibility: visible;
-  font-size: 130%;
-  position: absolute;
-  top: 45%;
-  left: 30%;
-  transform: translate(-50%, -50%);
+main .profContainer div .faceImg .tooltip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  height: 258px;
+  width: 258px;
+  visibility: hidden;
+  color: #3d1b12;
+  position: absolute;
   z-index: 1;
-}
-main .profContainer div .faceImg .textImgEvento .nameImg {
-  line-height: 0.75; /* Ajusto el espaciado entre párrafos */
-  font-weight: bolder;
-  margin: 15px 0 3px 0;
-  color: #f5f5f5;
-}
-main .profContainer div .faceImg .textImgEvento .descNameImg {
-  letter-spacing: 1px; /* Ajusto el espaciado entre letras */
-  line-height: 1; /* Ajusto el espaciado entre párrafos */
-  font-style: italic;
-  font-size: 80%;
-  color: #f5f5f5;
-  text-shadow: 2px 2px 5px rgb(1, 1, 1);
-}
-main .profContainer div .faceImg .textImgEvento span {
-  display: block; /* Para generar saltos de línea en los textos */
-}
-main .profContainer div .img-fluid:hover + .textImgEvento {
-  /* Cambia la opacidad de la img al hacer hover y aparece el texto encima*/
-  opacity: 100%;
+  margin: 0;
+  padding: 0;
+  bottom: 10%;
+  opacity: 0;
   transition: opacity 0.3s;
-  /*Para que se muestre el texto al hacer hover en la img */
-  visibility: visible;
 }
-main .profContainer div .textImgEvento:hover {
-  opacity: 100%;
-  /* Para que se mantenga visible al pasar por encima del texto de la img */
+main .profContainer div .faceImg .tooltip .spanNombre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  font-style: italic;
+  font-weight: bolder;
+}
+main .profContainer div .faceImg:hover .tooltip {
   visibility: visible;
+  opacity: 1;
+}
+main .profContainer div .faceImg:hover img {
+  opacity: 0.3;
+  transition: opacity 0.3s;
 }
 main .h2Asociados {
   /*Mixin de Margin y Padding*/
@@ -173,8 +146,6 @@ main .h2Asociados {
   color: #3d1b12;
 }
 main .containerMarca {
-  display: flex;
-  justify-content: center;
   /* Propiedades del contenedor de marcas asociadas */
   background-image: url("../images/marcaBg.jpg");
   background-size: cover; /* Para cubrir todo el fondo */
@@ -185,92 +156,28 @@ main .containerMarca {
   padding: 0;
   /* Mixin- Margin y Padding */
 }
-main .containerMarca .marcaImg {
-  display: none;
-}
-main .containerMarca .divAsociados {
-  /* Medidas del contenedor del carousel */
-  /*Mixin de Height y Width*/
+main .containerMarca div {
+  /* Altura del contenedor */
   height: 200px;
-  width: 80%;
-  justify-content: center;
 }
-main .containerMarca .divAsociados #carouselAsociados {
-  /* Medidas y centrado del contenedor del carousel */
+main .containerMarca div .marcaImg {
+  /* Centrado de los logos */
   display: flex;
-  height: 200px;
-  text-align: center;
   justify-content: center;
+  align-items: center;
 }
-main .containerMarca .divAsociados .carouselInnerAsociados {
-  width: 80%; /* Para que los botones de cambio de img no queden muy pegados al borde de la pantalla */
-}
-main .containerMarca .divAsociados .carousel-item {
-  width: 100%; /* Asegura que cada elemento del carousel tenga un ancho del 100% del contenedor */
-}
-main .containerMarca .divAsociados .carouselImgAsociados {
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  max-width: 100%; /* Mantiene el tamaño máximo */
-  max-height: 100%; /* Mantiene el tamaño máximo */
-}
-main .containerMarca .divAsociados .carouselImgAsociados .imgCarouselAsociados {
-  object-fit: contain; /* Para que se adapte al tamaño del contenedor */
-  max-width: 100%; /* Mantiene el tamaño máximo */
-  max-height: 100%; /* Mantiene el tamaño máximo */
-  height: 140px;
+main .containerMarca div img.fisioScan {
+  /* Ajuste de tamaño de los logos */
+  width: 80%;
 }
 
-@media screen and (min-width: 770px) {
-  main .containerMarca {
-    /* Propiedades del contenedor de marcas asociadas */
-    background-image: url("../images/marcaBg.jpg");
-    background-size: cover; /* Para cubrir todo el fondo */
-    background-position: center 80%; /* Para centrar la imagen */
-    background-repeat: no-repeat;
-    /*Mixin de Margin y Padding*/
-    margin: 0;
-    padding: 0;
-    /* Mixin- Margin y Padding */
-  }
-  main .containerMarca div {
-    /* Altura del contenedor */
-    height: 200px;
-  }
-  main .containerMarca div .marcaImg {
-    /* Hace visibles los logos horizontales */
-    visibility: visible;
-    position: relative;
-    /* Centrado de los logos */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  main .containerMarca div .logoImg {
-    min-width: 30%;
-    /* Ajuste de tamaño de los logos */
-    width: 80%;
-    opacity: 70%;
-  }
-  main .containerMarca div .logoImg:hover {
-    /* Ajuste de tamaño de los logos */
-    opacity: 100%;
-    transition: opacity 0.3s;
-  }
-  main .divAsociados {
-    /* Para que se oculte el carousel de marcas */
-    display: none;
-  }
-}
 /* PALETA DE COLORES */
-/* FUENTES */
-/* SHADOW BOX */
 /* Back up de colores; */
 /* $colorBackground: #faebd7 */
 /* Asignar Margin y Padding */
 /*Mixin de estilos de vértices radiales*/
 /* Extend de estilos de botones */
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndexShop div .textShopIndex div .buttonEnterateMas {
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndexShop div .textShopIndex div .buttonEnterateMas, main .containerEventos .textEvent .buttonEnterateMas {
   background-color: #F58700;
   border: #F58700;
   border-radius: 0px; /* Corrige el radius del framework */
@@ -278,13 +185,12 @@ main .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndex
   border-bottom-left-radius: 15px;
 }
 
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas:hover, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:hover {
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas:hover, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:hover, main .containerEventos .textEvent .buttonEnterateMas:hover {
   opacity: 0.6;
   transition: opacity 0.5s ease;
 }
 
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:active {
-  /* Transparenta y cambia color de borde y fuente */
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:active, main .containerEventos .textEvent .buttonEnterateMas:active {
   background-color: transparent;
   border: 1px solid #F58700;
   color: #F58700;
@@ -302,78 +208,45 @@ main .containerEventos {
   background-size: cover; /* Para cubrir todo el fondo */
   background-position: center; /* Para centrar la imagen */
   background-repeat: no-repeat;
-  padding: 10px;
+  padding: 30px;
   max-height: 900px; /* Altura máxima del contenedor */
   overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido es mayor que la altura */
 }
 main .containerEventos .textEvent {
   /* Propiedades de los contenedores de eventos */
   background-color: #f5f5f5;
-  box-shadow: 0px 2px 15px rgba(1, 1, 1, 0.5);
+  opacity: 70%;
+  box-shadow: 0px 0px 10px rgba(2, 1, 1, 0.1);
   text-align: center;
   font-family: "Barlow Condensed", sans-serif;
   font-weight: 500;
   /*Mixin de Margin y Padding*/
-  margin: 20px 30px;
-  padding: 20px 0 0 0;
+  margin: 20px 80px;
+  padding: 30px;
   /* Mixin- Margin y Padding */
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
   /* Mixin- Asigna curvas a las aristas */
 }
-main .containerEventos .textEvent .spanEvent {
-  /* Estilo de texto de la fecha del evento */
-  font-weight: bold;
-  display: block;
-}
 main .containerEventos .textEvent .buttonEnterateMas {
-  border: none; /* Borro el border default de button del bootstrap */
-  background-color: #F58700; /* Asigno color al button */
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 23px;
-  border-bottom-left-radius: 23px;
-  /* Mixin- Asigna curvas a las aristas */
-  /*Mixin de Height y Width*/
-  height: 50px;
-  width: 100%;
+  /* Clase con propiedades extendidas de button */
 }
-main .containerEventos .textEvent .buttonEnterateMas:hover {
-  /* Hover del botón para más información */
-  background-color: #e97100;
-}
-main .containerEventos .textEvent .buttonEnterateMas:active {
-  /* Active del botón para más información */
-  background-color: transparent;
-  border: 1px solid #F58700;
-  color: #F58700;
-  box-shadow: 0px 2px 15px rgba(1, 1, 1, 0.5);
-  transition: opacity 0s;
+main .containerEventos .textEvent:hover {
+  /* Contenedor de eventos al hacerle hover */
+  opacity: 100%;
+  transition: opacity 0.5s;
+  box-shadow: 0px 3px 10px rgba(71, 54, 54, 0.3);
 }
 
-@media screen and (min-width: 600px) {
-  .textEvent {
-    /* Baja de opacidad para generar efecto con hover */
-    opacity: 70%;
-  }
-  .textEvent:hover {
-    /* Contenedor de eventos al hacerle hover */
-    opacity: 100%;
-    transition: opacity 0.1s;
-    box-shadow: 0px 3px 10px rgba(71, 54, 54, 0.3);
-  }
-}
 /* PALETA DE COLORES */
-/* FUENTES */
-/* SHADOW BOX */
 /* Back up de colores; */
 /* $colorBackground: #faebd7 */
 /* Asignar Margin y Padding */
 /*Mixin de estilos de vértices radiales*/
 /* Extend de estilos de botones */
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndexShop div .textShopIndex div .buttonEnterateMas {
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndexShop div .textShopIndex div .buttonEnterateMas, main .containerEventos .textEvent .buttonEnterateMas {
   background-color: #F58700;
   border: #F58700;
   border-radius: 0px; /* Corrige el radius del framework */
@@ -381,13 +254,12 @@ main .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndex
   border-bottom-left-radius: 15px;
 }
 
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas:hover, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:hover {
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas:hover, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:hover, main .containerEventos .textEvent .buttonEnterateMas:hover {
   opacity: 0.6;
   transition: opacity 0.5s ease;
 }
 
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:active {
-  /* Transparenta y cambia color de borde y fuente */
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:active, main .containerEventos .textEvent .buttonEnterateMas:active {
   background-color: transparent;
   border: 1px solid #F58700;
   color: #F58700;
@@ -405,7 +277,7 @@ main .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .contain
 }
 .contactBg main .containerContacto .containerNosotros .containerInternoMapa {
   /* Para separar los contenedores entre si y de los bordes */
-  margin: 15px 15px 60px 15px;
+  margin: 15px;
 }
 .contactBg main .containerContacto .containerNosotros .containerInternoMapa .mapDiv {
   /* Propiedades del fondo del contenedor del mapa */
@@ -413,8 +285,7 @@ main .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .contain
   height: 340px;
   width: 100%;
   /*Mixin de Height y Width*/
-  background-color: rgba(245, 245, 245, 0.5333333333);
-  box-shadow: 0px 0px 10px rgba(2, 1, 1, 0.1);
+  background-color: rgba(255, 171, 69, 0.6);
   /* Propiedades del tamaño del mapa */
 }
 .contactBg main .containerContacto .containerNosotros .containerInternoMapa .mapDiv .map {
@@ -422,23 +293,19 @@ main .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .contain
   height: 100%;
   width: 100%;
   /*Mixin de Height y Width*/
-  /*Mixin de Margin y Padding*/
-  margin: 0;
-  padding: 15px 10px;
-  /* Mixin- Margin y Padding */
+  padding: 10px;
 }
 .contactBg main .containerContacto .containerNosotros .containerInternoMapa .datosDiv {
   /* Propiedades del contenedor de datos de contacto */
-  background-color: rgba(245, 245, 245, 0.5333333333);
   /*Mixin de Height y Width*/
   height: 160px;
   width: 100%;
   /*Mixin de Height y Width*/
+  background-color: rgba(255, 171, 69, 0.6);
   /*Mixin de Margin y Padding*/
   margin: 10px 0 0 0;
   padding: 10px 0;
   /* Mixin- Margin y Padding */
-  box-shadow: 0px 0px 10px rgba(2, 1, 1, 0.1);
 }
 .contactBg main .containerContacto .containerNosotros .containerInternoMapa .datosDiv p {
   /* Propiedades del contenedor de texto de datos de contacto */
@@ -461,8 +328,7 @@ main .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .contain
 .contactBg main .containerContacto .containerNosotros .containerForm2 .formDiv {
   /* Propiedades del contenedor del form */
   height: 510px;
-  box-shadow: 0px 0px 10px rgba(2, 1, 1, 0.1);
-  background-color: rgba(245, 245, 245, 0.5333333333);
+  background-color: rgba(255, 171, 69, 0.6);
   /*Mixin de Margin y Padding*/
   margin: 0;
   padding: 15px;
@@ -505,7 +371,6 @@ main .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .contain
   /* Propiedades de los botones */
 }
 .contactBg main .containerContacto .containerNosotros .containerForm2 .formDiv .formNosotros .buttonContainerNosotros .buttonContactoS, .contactBg main .containerContacto .containerNosotros .containerForm2 .formDiv .formNosotros .buttonContainerNosotros .buttonContactoR {
-  display: inline;
   background-color: #F58700;
   border: #F58700;
   border-top-left-radius: 0;
@@ -519,22 +384,19 @@ main .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .contain
   transition: opacity 0.5s ease;
 }
 .contactBg main .containerContacto .containerNosotros .containerForm2 .formDiv .formNosotros .buttonContainerNosotros .buttonContactoS:active, .contactBg main .containerContacto .containerNosotros .containerForm2 .formDiv .formNosotros .buttonContainerNosotros .buttonContactoR:active {
-  border: 2px solid #e97100;
-  color: #e97100;
+  border: 2px solid #fff5ee;
+  color: #fff5ee;
   background-color: transparent;
   box-shadow: 0px 2px 15px rgba(1, 1, 1, 0.5);
-  font-weight: 500;
 }
 
 /* PALETA DE COLORES */
-/* FUENTES */
-/* SHADOW BOX */
 /* Back up de colores; */
 /* $colorBackground: #faebd7 */
 /* Asignar Margin y Padding */
 /*Mixin de estilos de vértices radiales*/
 /* Extend de estilos de botones */
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndexShop div .textShopIndex div .buttonEnterateMas {
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndexShop div .textShopIndex div .buttonEnterateMas, main .containerEventos .textEvent .buttonEnterateMas {
   background-color: #F58700;
   border: #F58700;
   border-radius: 0px; /* Corrige el radius del framework */
@@ -542,13 +404,12 @@ main .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndex
   border-bottom-left-radius: 15px;
 }
 
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas:hover, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:hover {
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas:hover, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:hover, main .containerEventos .textEvent .buttonEnterateMas:hover {
   opacity: 0.6;
   transition: opacity 0.5s ease;
 }
 
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:active {
-  /* Transparenta y cambia color de borde y fuente */
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:active, main .containerEventos .textEvent .buttonEnterateMas:active {
   background-color: transparent;
   border: 1px solid #F58700;
   color: #F58700;
@@ -560,26 +421,24 @@ main {
 }
 main .containerGaleria {
   /*Propiedades de los contenedores de galerías*/
-  background-color: transparent;
+  background-color: rgba(255, 171, 69, 0.4);
+  margin: 20px 20px;
+  /*Mixin de estilos de vértices radiales*/
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
   height: auto;
-  width: 100%;
 }
 main .containerGaleria h2 {
-  margin: 50px 0 20px 0;
   /*Propiedades del contenedor del h2 de las galerías*/
-  background-color: #e97100;
-  box-shadow: 0px 0px 10px rgba(2, 1, 1, 0.1);
+  background-color: #f5c283;
+  margin-bottom: 10px;
 }
 main .containerGaleria h2 img {
   /* Medidas del logo de las galerías*/
   height: 70px;
   margin: 10px;
-}
-main .containerGaleria h2 .h2TitleGaleria {
-  /* Propiedades del título del h2 del contenedor de imágenes*/
-  box-shadow: 0px 0px 10px rgba(2, 1, 1, 0.1);
-  font-size: medium;
-  background-color: #F58700;
 }
 main .containerGaleria .visibleGaleriaPodios, main .containerGaleria .visibleGaleriaRunning, main .containerGaleria .visibleGaleriaTravel {
   /*Para separar el carrousel del contenedor*/
@@ -593,21 +452,17 @@ main .containerGaleria .containerGaleriaPodios, main .containerGaleria .containe
 /*Media query para pantallas tablet */
 @media screen and (min-width: 600px) {
   main .containerGaleria {
-    /*Tamaño del contenedor de img */
     height: 1050px;
     box-shadow: 0px 3px 10px rgba(71, 54, 54, 0.3);
   }
   main .containerGaleria .visibleGaleriaPodios, main .containerGaleria .visibleGaleriaRunning, main .containerGaleria .visibleGaleriaTravel {
-    /*Invisibiliza el carousel */
     display: none;
   }
   main .containerGaleria .containerGaleriaPodios, main .containerGaleria .containerGaleriaRunning, main .containerGaleria .containerGaleriaTravel {
-    /* Propiedades de las img */
     display: grid;
     height: 50vh;
     grid-template-columns: repeat 2, 50%;
     grid-template-rows: 30% 50% 30% 40% 40%;
-    /* Distribución de las img */
   }
   main .containerGaleria .containerGaleriaPodios .imgPodios1, main .containerGaleria .containerGaleriaRunning .imgPodios1, main .containerGaleria .containerGaleriaTravel .imgPodios1 {
     grid-row: span 1;
@@ -637,7 +492,6 @@ main .containerGaleria .containerGaleriaPodios, main .containerGaleria .containe
     transition: transform 0.3s ease;
   }
   main .containerGaleria .containerGaleriaPodios img:hover, main .containerGaleria .containerGaleriaRunning img:hover, main .containerGaleria .containerGaleriaTravel img:hover {
-    /* Efectos de hover sobre las img */
     transform: scale(1.03); /* Escala la imagen ligeramente al pasar el mouse sobre ella */
     opacity: 100%;
     transition: opacity 0.2s;
@@ -646,11 +500,9 @@ main .containerGaleria .containerGaleriaPodios, main .containerGaleria .containe
 /*Media query para pantallas desktop */
 @media screen and (min-width: 1024px) {
   main .containerGaleria {
-    /*Tamaño del contenedor de img */
     height: 850px;
   }
   main .containerGaleria .visibleGaleriaPodios, main .containerGaleria .visibleGaleriaRunning, main .containerGaleria .visibleGaleriaTravel {
-    /*Invisibiliza el carousel */
     display: none;
   }
   main .containerGaleria .containerGaleriaPodios, main .containerGaleria .containerGaleriaRunning, main .containerGaleria .containerGaleriaTravel {
@@ -658,7 +510,6 @@ main .containerGaleria .containerGaleriaPodios, main .containerGaleria .containe
     height: 50vh;
     grid-template-columns: repeat 3, 25%;
     grid-template-rows: 40% 60% 50%;
-    /* Distribución de las img */
   }
   main .containerGaleria .containerGaleriaPodios .imgPodios1, main .containerGaleria .containerGaleriaRunning .imgPodios1, main .containerGaleria .containerGaleriaTravel .imgPodios1 {
     grid-row: span 1;
@@ -678,16 +529,17 @@ main .containerGaleria .containerGaleriaPodios, main .containerGaleria .containe
   main .containerGaleria .containerGaleriaPodios .imgPodios7, main .containerGaleria .containerGaleriaRunning .imgPodios7, main .containerGaleria .containerGaleriaTravel .imgPodios7 {
     grid-column: span 2;
   }
+  main .containerGaleria .containerGaleriaPodios img, main .containerGaleria .containerGaleriaRunning img, main .containerGaleria .containerGaleriaTravel img {
+    height: 100%;
+  }
 }
 /* PALETA DE COLORES */
-/* FUENTES */
-/* SHADOW BOX */
 /* Back up de colores; */
 /* $colorBackground: #faebd7 */
 /* Asignar Margin y Padding */
 /*Mixin de estilos de vértices radiales*/
 /* Extend de estilos de botones */
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndexShop div .textShopIndex div .buttonEnterateMas {
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndexShop div .textShopIndex div .buttonEnterateMas, main .containerEventos .textEvent .buttonEnterateMas {
   background-color: #F58700;
   border: #F58700;
   border-radius: 0px; /* Corrige el radius del framework */
@@ -695,13 +547,12 @@ main .rowIndexEvent .textEventIndex div .buttonEnterateMas, main .containerIndex
   border-bottom-left-radius: 15px;
 }
 
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas:hover, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:hover {
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas:hover, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:hover, main .containerEventos .textEvent .buttonEnterateMas:hover {
   opacity: 0.6;
   transition: opacity 0.5s ease;
 }
 
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:active {
-  /* Transparenta y cambia color de borde y fuente */
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .containerIndexShop div .textShopIndex div .buttonEnterateMas:active, main .containerEventos .textEvent .buttonEnterateMas:active {
   background-color: transparent;
   border: 1px solid #F58700;
   color: #F58700;
@@ -720,6 +571,11 @@ main .rowIndexEvent .textEventIndex div .buttonEnterateMas:active, main .contain
 }
 @media screen and (max-width: 600px) {
   main {
+    padding-top: 150px;
+  }
+}
+@media screen and (max-width: 315px) {
+  main {
     padding-top: 250px;
   }
 }
@@ -727,7 +583,6 @@ main {
   /* ---------------- Texto sobre Imágen de bienvenida INDEX ---------------*/
   /* ----------------------- Sección INDEX/SHOP ----------------------- */
   /* ----------------------- Sección index/EVENTOS -----------------------*/
-  /* Propiedades del contenedor del carrousel de EVENTOS */
   /* ----------------------- Sección fundamentos ----------------------- */
 }
 main h1, main h2 {
@@ -741,7 +596,7 @@ main h1, main h2 {
 main .indeximg {
   position: relative;
   width: 100%;
-  margin-top: -130px;
+  margin-top: -80px;
   overflow: hidden;
   z-index: -1;
 }
@@ -754,10 +609,9 @@ main .indeximg .imgIndexWelcome {
   display: block;
 }
 main .indeximg .overlay { /* Texto sobre Imágen de bienvenida INDEX */
-  width: 100%;
   position: absolute;
-  top: 95.5%; /* Posicionamiento sobre la imágen */
-  left: 51%; /* Posicionamiento sobre la imágen */
+  top: 87%; /* Posicionamiento sobre la imágen */
+  left: 50%; /* Posicionamiento sobre la imágen */
   transform: translate(-50%, -50%); /* Posicionamiento sobre la imágen */
 }
 main .indeximg .overlay h1 {
@@ -765,14 +619,15 @@ main .indeximg .overlay h1 {
   background-color: transparent;
   color: #fff5ee;
   display: flex;
-  font-size: 10vw;
-  font-weight: bolder;
+  font-size: 5vw;
+  text-shadow: 1px 5px 15px rgb(51, 51, 51);
+  margin-bottom: 10px;
 }
 main .containerIndexShop {
   /* Propiedades del contenedor de sección SHOP */
   /*Mixin de Margin y Padding*/
   margin: 20px 0 20px 0;
-  padding: 30px;
+  padding: 0;
   /* Mixin- Margin y Padding */
 }
 main .containerIndexShop div {
@@ -789,7 +644,7 @@ main .containerIndexShop div .divShopIndex {
 }
 main .containerIndexShop div .textShopIndex {
   /* Propiedades del contenedor del cuadro de texto */
-  min-height: 240px;
+  min-height: 300px;
   max-height: 380px;
   background-color: #f5f5f5;
   box-shadow: 0px 0px 10px rgba(2, 1, 1, 0.1);
@@ -816,11 +671,9 @@ main .containerIndexShop div .textShopIndex div {
   overflow-y: auto; /* Habilita el scroll vertical si el contenido es mayor que la altura */
 }
 main .containerIndexShop div .textShopIndex div p {
-  /* Fuente y espaciados del texto de SHOP*/
-  font-family: "Barlow Condensed", sans-serif;
   /*Mixin de Margin y Padding*/
   margin: 0;
-  padding: 5px 10px 0px 50px;
+  padding: 15px 10px 20px 50px;
   /* Mixin- Margin y Padding */
 }
 main .containerIndexShop div .textShopIndex div .buttonEnterateMas {
@@ -837,6 +690,10 @@ main .containerIndexShop div .textShopIndex div .buttonEnterateMas {
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
     /* Mixin- Asigna curvas a las aristas */
+    /*Mixin de Margin y Padding*/
+    margin: -30px 0 0 0;
+    padding: 30px 0 0 0;
+    /* Mixin- Margin y Padding */
   }
   main .containerIndexShop div .textShopIndex h2 { /* Corrección de valores del h2 global */
     border-top-right-radius: 0px;
@@ -845,18 +702,8 @@ main .containerIndexShop div .textShopIndex div .buttonEnterateMas {
     padding: 40px 0 0 0;
     /* Mixin- Margin y Padding */
   }
-  main .containerIndexShop div .textShopIndex div p {
-    /*Mixin de Margin y Padding*/
-    margin: 10;
-    padding: 5px 10px 0px 10px;
-    /* Mixin- Margin y Padding */
-  }
 }
-main .rowIndexEvent {
-  padding: 30px;
-  margin-bottom: 30px;
-}
-main .rowIndexEvent .divEventIndex {
+main .containerIndexShop .rowIndexEvent {
   /* Propiedades del contenedor del carrousel */
   /*Mixin de Margin y Padding*/
   margin: 0;
@@ -864,7 +711,7 @@ main .rowIndexEvent .divEventIndex {
   /* Mixin- Margin y Padding */
   box-shadow: 0px 3px 10px rgba(71, 54, 54, 0.3);
 }
-main .rowIndexEvent .textEventIndex {
+main .containerIndexShop .rowIndexEvent .textEventIndex {
   /* Propiedades del contenedor del cuadro de texto sección EVENTOS*/
   min-height: 300px;
   max-height: 380px;
@@ -880,7 +727,7 @@ main .rowIndexEvent .textEventIndex {
   padding: 0;
   /* Mixin- Margin y Padding */
 }
-main .rowIndexEvent .textEventIndex h2 { /* Corrección de valores del h2 global */
+main .containerIndexShop .rowIndexEvent .textEventIndex h2 { /* Corrección de valores del h2 global */
   border-top-left-radius: 30px;
   width: 100%;
   /*Mixin de Margin y Padding*/
@@ -888,33 +735,28 @@ main .rowIndexEvent .textEventIndex h2 { /* Corrección de valores del h2 global
   padding: 0;
   /* Mixin- Margin y Padding */
 }
-main .rowIndexEvent .textEventIndex div {
+main .containerIndexShop .rowIndexEvent .textEventIndex div {
   max-height: 210px; /* Altura máxima de la región scrollable */
   overflow-y: auto; /* Habilita el scroll vertical si el contenido es mayor que la altura */
 }
-main .rowIndexEvent .textEventIndex div p {
-  /* Fuente y espaciados del texto de EVENT*/
-  font-family: "Barlow Condensed", sans-serif;
+main .containerIndexShop .rowIndexEvent .textEventIndex div p {
   /*Mixin de Margin y Padding*/
-  margin: 10;
-  padding: 5px 50px 0px 10px;
+  margin: 0;
+  padding: 15px 50px 20px 10px;
   /* Mixin- Margin y Padding */
 }
-main .rowIndexEvent .textEventIndex div .buttonEnterateMas {
+main .containerIndexShop .rowIndexEvent .textEventIndex div .buttonEnterateMas {
   /* Propiedades del button extendida */
 }
-main .rowIndexEvent div {
-  border-radius: 30px; /* Asigno bordes circulares al carrousel de EVENTOS*/
-}
 @media screen and (max-width: 990px) {
-  main {
+  main .containerIndexShop {
     /* Comportamiento de los contenedores al ajustar la resolución de pantalla */
   }
-  main .rowIndexEvent {
+  main .containerIndexShop .rowIndexEvent {
     /* Para que el texto se ubique debajo del carrusel de manera responsive */
     flex-wrap: wrap-reverse;
   }
-  main .rowIndexEvent .textEventIndex {
+  main .containerIndexShop .rowIndexEvent .textEventIndex {
     width: 75%;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -926,17 +768,11 @@ main .rowIndexEvent div {
     padding: 30px 0 0 0;
     /* Mixin- Margin y Padding */
   }
-  main .rowIndexEvent .textEventIndex h2 { /* Corrección de valores del h2 global */
+  main .containerIndexShop .rowIndexEvent .textEventIndex h2 { /* Corrección de valores del h2 global */
     /*Mixin de Margin y Padding*/
     margin: -40px 0 0 0;
     padding: 40px 0 0 0;
     /* Mixin- Margin y Padding */
-  }
-  main .rowIndexEvent .textEventIndex div p {
-    /* Para que se acomode el texto cuando se achique la pantalla */
-    /*Mixin de Margin y Padding*/
-    margin: 10;
-    padding: 5px 10px 0px 10px;
   }
 }
 main .containerImgContainer {
@@ -952,14 +788,12 @@ main .containerImgContainer h2 {
   margin: 0 0 80px 0;
   padding: 6px;
   /* Mixin- Margin y Padding */
-  color: #3d1b12; /* Cambio el color de la fuente del h2 */
 }
 main .containerImgContainer h2 .smaller-text {
   /* Ajuste de tamaño de fuente */
   font-size: 50%;
 }
 main .containerImgContainer .imgContainer {
-  /*Fondo de los logos de fundamentos*/
   align-items: center;
   /*Mixin de Margin y Padding*/
   margin: 100px 0 100px 0;
@@ -980,14 +814,12 @@ main .containerImgContainer .imgContainer .mainImage p {
 main .containerImgContainer .imgContainer .mainImage span {
   display: block; /* Para generar saltos de línea en los textos */
 }
-main .containerImgContainer .imgContainer .mainImage img:hover {
-  animation: heartBeatAnimation 1s infinite;
-}
 main .containerImgContainer p {
   margin: 0;
 }
 
 /* FIN MAIN */
 /* ----------------------- FIN Sección fundamentos ----------------------- */
+/* -------------------------------inicio pasaje -------------------------------- */
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=main.css.map */

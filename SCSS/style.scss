@@ -1,0 +1,258 @@
+/* IMPORTS */
+@import "html/header";
+@import "html/footer";
+@import "html/nosotros";
+@import "html/eventos";
+@import "html/contacto";
+@import "html/galeria";
+
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extends";
+
+.bg-body-custom {
+    /* Características del Body */
+    background-color: $colorBackground;
+  }
+
+
+  @media screen and (max-width: 2024px) {
+    main {
+      padding-top: 170px;
+    }  
+  }
+  
+  @media screen and (max-width: 600px) {
+    main {
+      padding-top: 250px;
+    }  
+  }  
+
+  main {
+    h1, h2 {        
+        background-color: $colorSecundario;
+        text-align: center;
+        font-family: $fontPrincipal;
+        color: $colorH;
+        font-weight: 500;
+        margin-bottom: 30px;        
+    }
+    /* ---------------- Texto sobre Imágen de bienvenida INDEX ---------------*/
+    .indeximg {
+        position: relative;
+        width: 100%;
+        margin-top: -130px;
+        overflow: hidden;
+        z-index: -1;
+
+        .imgIndexWelcome {
+            /* Tamaño de la imagen de bienvenida */           
+            @include hyw(auto, 100%);/*Mixin de Height y Width*/
+            display: block;
+        }
+            .overlay {/* Texto sobre Imágen de bienvenida INDEX */
+                width: 100%;
+                position: absolute;                
+                top: 95.5%;/* Posicionamiento sobre la imágen */
+                left: 51%;/* Posicionamiento sobre la imágen */
+                transform: translate(-50%, -50%);/* Posicionamiento sobre la imágen */
+                h1 {
+                    /* Corrección de propiedades del h1 */
+                    background-color: transparent;
+                    color: $colorBackground;
+                    display: flex;
+                    font-size: 10vw;
+                    font-weight: bolder;                    
+                  }
+            }
+    }
+    /* ----------------------- Sección INDEX/SHOP ----------------------- */
+    .containerIndexShop {
+        /* Propiedades del contenedor de sección SHOP */
+        @include myp(20px 0 20px 0, 30px);  /* Mixin- Margin y Padding */    
+                
+                
+        div {
+            /* Redondeado de aristas */
+            border-radius: 30px;                                 
+            
+            .divShopIndex {
+                /* Propiedades del contenedor del carrousel */                                              
+                @include myp(0,0);/* Mixin- Margin y Padding */               
+                box-shadow: $shadowMed; 
+            }
+            
+            .textShopIndex {
+                /* Propiedades del contenedor del cuadro de texto */
+                min-height: 240px;
+                max-height: 380px;                             
+                background-color: $colorContenedoresSecciones;
+                box-shadow: $shadowSoft;
+                @include borderCreator(0,30px,30px,0); /* Mixin- Asigna curvas a las aristas */        
+                @include myp(0 0 0 -30px,0); /* Mixin- Margin y Padding */      
+                
+                h2 { /* Corrección de valores del h2 global */
+                    border-top-right-radius: 30px;
+                    width: 100%;
+                    @include myp(0,0); /* Mixin- Margin y Padding */
+                }
+
+                div {                  
+                    max-height: 210px; /* Altura máxima de la región scrollable */
+                    overflow-y: auto; /* Habilita el scroll vertical si el contenido es mayor que la altura */
+                        p {         
+                            /* Fuente y espaciados del texto de SHOP*/
+                            font-family: $fontPrincipal;           
+                            @include myp(0,5px 10px 0px 50px); /* Mixin- Margin y Padding */
+                        }
+
+                    .buttonEnterateMas {
+                        @extend %button; /* Propiedades del button extendida */
+                    }          
+                }               
+            }
+
+            @media screen and (max-width: 990px) {
+                /* Comportamiento de los contenedores al ajustar la resolución de pantalla */                           
+
+                .textShopIndex {
+                    width: 75%;
+                    @include borderCreator(0,0,30px,30px); /* Mixin- Asigna curvas a las aristas */                   
+                    
+
+                    h2 { /* Corrección de valores del h2 global */     
+                        border-top-right-radius: 0px;
+                        @include myp(-40px 0 0 0,40px 0 0 0); /* Mixin- Margin y Padding */
+                    }
+                    div{
+                    p {                    
+                        @include myp(10,5px 10px 0px 10px); /* Mixin- Margin y Padding */
+                    }
+                }
+                }
+              }
+        }
+      }
+
+      /* ----------------------- Sección index/EVENTOS -----------------------*/
+      
+        /* Propiedades del contenedor del carrousel de EVENTOS */
+        
+        .rowIndexEvent {
+            padding: 30px;
+            margin-bottom: 30px;    
+           .divEventIndex {           
+             /* Propiedades del contenedor del carrousel */                                              
+             @include myp(0,0);/* Mixin- Margin y Padding */               
+             box-shadow: $shadowMed;
+           }
+            
+            .textEventIndex {
+                /* Propiedades del contenedor del cuadro de texto sección EVENTOS*/
+                min-height: 300px;
+                max-height: 380px;                             
+                background-color: $colorContenedoresSecciones;
+                box-shadow: $shadowSoft;
+                @include borderCreator(30px,0,0,30px); /* Mixin- Asigna curvas a las aristas */        
+                @include myp(0 -40px 0 0,0); /* Mixin- Margin y Padding */      
+                
+                h2 { /* Corrección de valores del h2 global */
+                    border-top-left-radius: 30px;
+                    width: 100%;
+                    @include myp(0,0); /* Mixin- Margin y Padding */
+                }
+
+                div {                  
+                    max-height: 210px; /* Altura máxima de la región scrollable */
+                    overflow-y: auto; /* Habilita el scroll vertical si el contenido es mayor que la altura */
+                        p {     
+                            /* Fuente y espaciados del texto de EVENT*/
+                            font-family: $fontPrincipal;                
+                            @include myp(10,5px 50px 0px 10px); /* Mixin- Margin y Padding */
+                        }
+                    .buttonEnterateMas {
+                        @extend %button; /* Propiedades del button extendida */
+                    }          
+                }               
+            }
+           div {
+                border-radius: 30px; /* Asigno bordes circulares al carrousel de EVENTOS*/                
+            }
+        }
+            @media screen and (max-width: 990px) {
+                /* Comportamiento de los contenedores al ajustar la resolución de pantalla */                           
+                .rowIndexEvent {
+                     /* Para que el texto se ubique debajo del carrusel de manera responsive */
+                    flex-wrap:wrap-reverse;
+                .textEventIndex {
+                    width: 75%;
+                    @include borderCreator(0,0,30px,30px); /* Mixin- Asigna curvas a las aristas */                   
+                    @include myp(-30px 0 0 0,30px 0 0 0); /* Mixin- Margin y Padding */
+
+                    h2 { /* Corrección de valores del h2 global */     
+                        @include myp(-40px 0 0 0,40px 0 0 0); /* Mixin- Margin y Padding */
+                    }
+                    div{
+                        p {
+                            /* Para que se acomode el texto cuando se achique la pantalla */
+                            @include myp(10,5px 10px 0px 10px);
+                        }
+                    }
+                }
+            }
+            }            
+          
+    /* ----------------------- Sección fundamentos ----------------------- */
+    .containerImgContainer {
+        background-image: url('../images/indexRun.jpg'); /*Imágen de fondo de la seción*/
+        background-size: cover; /* Para cubrir todo el fondo */
+        background-position: center;      
+        background-repeat: no-repeat;  
+
+            h2 {
+                /* Corrección de valores del h2 global */                
+                font-style: italic;
+                @include myp(0 0 80px 0,6px); /* Mixin- Margin y Padding */
+                color: $colorFontHover;/* Cambio el color de la fuente del h2 */
+               
+                .smaller-text {
+                    /* Ajuste de tamaño de fuente */
+                    font-size: 50%;
+                }
+            }
+            .imgContainer {
+                /*Fondo de los logos de fundamentos*/
+                align-items: center;                
+                @include myp(100px 0 100px 0,40px 0 30px 0); /* Mixin- Margin y Padding */
+                background-color:#e97100e6;
+
+                .mainImage {
+                    img {
+                        /* Ajuste de tamaño de fuente */
+                        margin: 30px 0 10px;
+                        max-width: 100%;
+                        height: 100px;
+                    }
+                    p {
+                        font-family: $fontPrincipal;
+                        color: $colorH;  
+                      }
+                          
+                        span {
+                            display: block; /* Para generar saltos de línea en los textos */
+                        }
+                    img:hover {
+                        
+                            animation: heartBeatAnimation 1s infinite;
+                          
+                    }
+                }
+              }  
+    p {
+        margin: 0;
+    } 
+    }
+  }/* FIN MAIN */
+
+    /* ----------------------- FIN Sección fundamentos ----------------------- */

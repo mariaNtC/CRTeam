@@ -1,0 +1,30 @@
+@import "../abstracts/variables";
+
+
+footer {
+    background-color: $colorPrincipal; /* Color de fondo */
+    color: $colorH; /* Color del texto */
+    text-align: center; 
+    div {
+        div {
+            p {
+                /* Estilos para el texto de copyright */
+                margin: 20px;
+                font-family: "Barlow Condensed", sans-serif; 
+            }
+        }
+        div.imgFooter {
+            a {
+                img {
+                     /* Estilos para LOGOS de redes del footer */
+                    height: 40px;
+                    margin-bottom: 20px;  
+                }
+            }            
+            a:hover{
+                opacity: 0.6; /* Cambia la opacidad al hacer hover sobre LOGOS de redes*/
+                transition: opacity 0.5s ease; 
+            }
+        }        
+    }   
+}
