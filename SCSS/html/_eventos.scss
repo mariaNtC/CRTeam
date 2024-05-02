@@ -2,6 +2,7 @@
 @import "../abstracts/mixins";
 @import "../abstracts/extends";
 
+/* ------------------------------- ESTILOS DE LA HTML EVENTOS ------------------------------- */  
 main {
     /* -------------------------- SECCIÓN EVENTOS -----------------------*/
     .h1Eventos {
@@ -54,12 +55,8 @@ main {
     }
 }
 
-@media screen and (min-width: 600px) {      
-        
-    .textEvent {
-       /* Baja de opacidad para generar efecto con hover */
-       opacity: 70%;
-    }
+@media screen and (min-width: 600px) {              
+    
         .textEvent:hover {
             /* Contenedor de eventos al hacerle hover */
             opacity: 100%;

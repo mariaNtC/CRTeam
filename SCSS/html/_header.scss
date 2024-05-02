@@ -1,6 +1,7 @@
 @import "../abstracts/variables";
 @import "../abstracts/mixins";
 
+/* ------------------------------- ESTILOS DEL HEADER ------------------------------- */  
 header {
     nav {
         .container-fluid {
@@ -16,7 +17,7 @@ header {
                 img {
                     /* Propiedades de la img del logo*/ 
                     width: 8%;    
-                    min-width: 120px;  
+                    min-width: 120px;
                 }
             }
             button {
@@ -34,20 +35,34 @@ header {
                         /* Ubicación y propiedades de las UL del NAV*/
                         list-style-type: none;    
                         font-family: "Barlow Condensed", sans-serif; /* Llamo a la fuente importada*/
-                        display: flex;    
+                        display: flex;  
                         text-align: center;
-                        position: fixed;    
+                        position: fixed;                            
                         right: 0;
                         background-color:$colorPrincipal; 
-                        border-end-start-radius: 20px;
+                       
                     }
+                        @media screen and (max-width: 991px) {
+                            /* Cuando se habilita el menú hambur. se modifican los estilos de los links del nav*/
+                            ul {
+                            width: 100%;
+                            box-shadow: $shadowMed;
+                            @include borderCreator(0,0,10px,10px);
+                            }
+                                .nav-link.active, .nav-link.show{
+                                    /* Propiedades del texto A del NAV que está ACTIVO*/
+                                    background-color: $colorPrincipalStrong;
+                                    margin: 0px;
+                                }                                  
+                        }  
+                    
                         li {
                             .nav-link {
                                 /* Propiedades del texto A del NAV*/
                                 color:$colorH;
                                 text-decoration: none;    
                                 font-size: x-large;
-                                margin: 5px 20px;
+                                margin: 5px 20px;                                
                             }
                             .nav-link:hover {
                                 /* Hover de links del NAV*/

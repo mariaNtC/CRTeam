@@ -2,6 +2,7 @@
 @import "../abstracts/mixins";
 @import "../abstracts/extends";
 
+/* ------------------------------- ESTILOS DE LA HTML GALERÍA ------------------------------- */  
 main {
     /*Propiedades de contenedores para pantallas cel*/
     .containerGaleria {
@@ -24,8 +25,7 @@ main {
                   box-shadow: $shadowSoft;
                   font-size: medium;
                   background-color:$colorPrincipal;
-                }
-                
+                }                
             }
 
         .visibleGaleriaPodios, .visibleGaleriaRunning, .visibleGaleriaTravel {
@@ -46,8 +46,8 @@ main {
     main {
         .containerGaleria {   
           /*Tamaño del contenedor de img */        
-            height: 1050px;
-            box-shadow: $shadowMed;
+            height: 1050px;  
+                      
                 .visibleGaleriaPodios, .visibleGaleriaRunning, .visibleGaleriaTravel {
                   /*Invisibiliza el carousel */
                     display: none;

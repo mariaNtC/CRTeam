@@ -5,6 +5,7 @@
 @import "html/eventos";
 @import "html/contacto";
 @import "html/galeria";
+@import "html/prox";
 
 
 @import "abstracts/variables";
@@ -17,20 +18,67 @@
   }
 
 
-  @media screen and (max-width: 2024px) {
+  @media screen and (max-width: 2024px) { /* Ajuste de la posición de los elementos para que no se superponga el header */
     main {
       padding-top: 170px;
     }  
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 600px) { /* Ajuste de la posición de los elementos para que no se superponga el header */
     main {
-      padding-top: 250px;
+      padding-top: 140px;
     }  
   }  
+/* -------------------------------- Estilo de Scroll bar ------------------------------ */
+::-webkit-scrollbar {
+    /* Estilos del back del scrollbar */
+    width: 15px; /* Ancho del scrollbar vertical */    
+    height: 15px; /* Alto del scrollbar horizontal */  
+    background-color: $colorH;
+}
 
+::-webkit-scrollbar-button {
+    /* Estilos de las flechas */
+    background-color: $colorPrincipal; /* Color del scrollbar */
+    border: 2px solid $colorSecundario;
+    border-radius: 100%;
+    height: 15px;   
+    width: 15px;
+}
+    ::-webkit-scrollbar-button:hover {
+        /* Hover de las flechas */
+        background-color: $colorPrincipalStrong;
+        transition: background-color 0.6s;
+    }
+        ::-webkit-scrollbar-button:active {
+            /* Active de las flechas */
+            background-color: $colorSecundario;
+        } 
+
+::-webkit-scrollbar-thumb {
+    /* Estilo de la barra */
+    background-color: $colorPrincipal; /* Color del scrollbar */
+    border: 2px solid $colorSecundario; 
+    border-radius: 15px;
+}
+    ::-webkit-scrollbar-thumb:hover {
+        /* Hover de la barra */
+        background-color: $colorPrincipalStrong;
+        transition: background-color 0.6s;
+    }
+        ::-webkit-scrollbar-thumb:active {
+            /* Active de la barra */
+            background-color: $colorSecundario;
+        }
+/* -------------------------------- FINAL Estilo de Scroll bar ------------------------------ */
+
+/* ------------------------------- ESTILOS DE LA HTML INDEX ------------------------------- */  
   main {
-    h1, h2 {        
+    /* Para eliminar el espacio en blanco que queda en el lado derecho de los contenedores por los estilos heredados del framework*/
+    .row {
+        margin: 0px;
+    }
+    h1, h2 { /* Estilos de los títulos h1 y h2 */
         background-color: $colorSecundario;
         text-align: center;
         font-family: $fontPrincipal;
@@ -67,11 +115,15 @@
                   }
             }
     }
+        @media screen and (max-width: 600px) { /* Ajuste de la posición de la imágen principal para que no se superponga el header */
+            .indeximg {
+            padding-top: 100px;           
+            }              
+        }  
     /* ----------------------- Sección INDEX/SHOP ----------------------- */
     .containerIndexShop {
         /* Propiedades del contenedor de sección SHOP */
-        @include myp(20px 0 20px 0, 30px);  /* Mixin- Margin y Padding */    
-                
+        @include myp(20px 0 20px 0, 30px);  /* Mixin- Margin y Padding */                    
                 
         div {
             /* Redondeado de aristas */
@@ -79,13 +131,18 @@
             
             .divShopIndex {
                 /* Propiedades del contenedor del carrousel */                                              
-                @include myp(0,0);/* Mixin- Margin y Padding */               
+                @include myp(0,0);/* Mixin- Margin y Padding */                               
                 box-shadow: $shadowMed; 
+                @include hyw(300px,450px);  
+                img {
+                    /* Para que la imagen ocupe todo el espacio del contenedor */
+                    object-fit: cover;
+                }              
             }
             
             .textShopIndex {
-                /* Propiedades del contenedor del cuadro de texto */
-                min-height: 240px;
+                /* Propiedades del contenedor del cuadro de texto sección SHOP*/
+                height:fit-content; /* Para que el contenedor se adapte al contenido*/
                 max-height: 380px;                             
                 background-color: $colorContenedoresSecciones;
                 box-shadow: $shadowSoft;
@@ -98,27 +155,31 @@
                     @include myp(0,0); /* Mixin- Margin y Padding */
                 }
 
-                div {                  
-                    max-height: 210px; /* Altura máxima de la región scrollable */
-                    overflow-y: auto; /* Habilita el scroll vertical si el contenido es mayor que la altura */
+                div {                                                          
+                    max-height: 175px; /* Altura máxima de la región scrollable */
+                    overflow-y: auto; /* Habilita el scroll vertical si el contenido es mayor que la altura */                   
                         p {         
                             /* Fuente y espaciados del texto de SHOP*/
-                            font-family: $fontPrincipal;           
-                            @include myp(0,5px 10px 0px 50px); /* Mixin- Margin y Padding */
+                            font-family: $fontPrincipal;   
+                            font-size:larger;                                  
+                            @include myp(0 0 20px 0,5px 10px 0px 50px); /* Mixin- Margin y Padding */
+                            span {                              
+                                display: block; /* Para generar saltos de línea en los textos */
+                            }
                         }
-
-                    .buttonEnterateMas {
-                        @extend %button; /* Propiedades del button extendida */
-                    }          
                 }               
             }
 
             @media screen and (max-width: 990px) {
                 /* Comportamiento de los contenedores al ajustar la resolución de pantalla */                           
-
+                .divShopIndex {
+                    /* Ajuste de medidas para que el carrousel se adapte a los contenedores y ocupe toda la pantalla */
+                    @include hyw(auto,auto);                    
+                }
                 .textShopIndex {
                     width: 75%;
                     @include borderCreator(0,0,30px,30px); /* Mixin- Asigna curvas a las aristas */                   
+                    @include myp(-30px 0 0 0,30px 0 0 0);/* Mixin para centrar el contenedor de texto en responsive */ 
                     
 
                     h2 { /* Corrección de valores del h2 global */     
@@ -143,15 +204,20 @@
             padding: 30px;
             margin-bottom: 30px;    
            .divEventIndex {           
-             /* Propiedades del contenedor del carrousel */                                              
+             /* Propiedades del contenedor del carrousel */      
+             @include hyw(300px,450px);/* Mixin- Height y Width */                                       
              @include myp(0,0);/* Mixin- Margin y Padding */               
-             box-shadow: $shadowMed;
+             box-shadow: $shadowMed;          
+                img {           
+                    max-height: 300px; /* Márgen para la imágen */ 
+                    object-fit: cover; /* Para que la imagen ocupe todo el espacio del contenedor */
+                }           
            }
             
             .textEventIndex {
                 /* Propiedades del contenedor del cuadro de texto sección EVENTOS*/
-                min-height: 300px;
-                max-height: 380px;                             
+                height:fit-content; /* Para que el contenedor se adapte al contenido*/
+                max-height: 380px; /* Para que se mantenga el estilo al adaptar pantalla */                                          
                 background-color: $colorContenedoresSecciones;
                 box-shadow: $shadowSoft;
                 @include borderCreator(30px,0,0,30px); /* Mixin- Asigna curvas a las aristas */        
@@ -163,16 +229,21 @@
                     @include myp(0,0); /* Mixin- Margin y Padding */
                 }
 
-                div {                  
+                div { /* Estilos del contenedor de la sección Eventos */
                     max-height: 210px; /* Altura máxima de la región scrollable */
                     overflow-y: auto; /* Habilita el scroll vertical si el contenido es mayor que la altura */
                         p {     
                             /* Fuente y espaciados del texto de EVENT*/
-                            font-family: $fontPrincipal;                
+                            font-family: $fontPrincipal;  
+                            font-size:larger;              
                             @include myp(10,5px 50px 0px 10px); /* Mixin- Margin y Padding */
+                            span {                              
+                                display: block; /* Para generar saltos de línea en los textos */
+                            }
                         }
                     .buttonEnterateMas {
                         @extend %button; /* Propiedades del button extendida */
+                        margin: 15px; /* Espaciado entre el botón y el resto */
                     }          
                 }               
             }
@@ -185,6 +256,12 @@
                 .rowIndexEvent {
                      /* Para que el texto se ubique debajo del carrusel de manera responsive */
                     flex-wrap:wrap-reverse;
+                    .divEventIndex {
+                        @include hyw(auto,auto);/* Mixin- Height y Width */ 
+                        img {
+                            max-height: none; /* Corrección de escala para que la img ocupe toda la pantalla */ 
+                        }
+                    }                    
                 .textEventIndex {
                     width: 75%;
                     @include borderCreator(0,0,30px,30px); /* Mixin- Asigna curvas a las aristas */                   
@@ -228,7 +305,7 @@
                 background-color:#e97100e6;
 
                 .mainImage {
-                    img {
+                    .imgFundamentos {
                         /* Ajuste de tamaño de fuente */
                         margin: 30px 0 10px;
                         max-width: 100%;
@@ -242,15 +319,15 @@
                         span {
                             display: block; /* Para generar saltos de línea en los textos */
                         }
-                    img:hover {
-                        
-                            animation: heartBeatAnimation 1s infinite;
+                        .imgFundamentos:active {
+                             /* Repite la animación al hacerle click a la imagen */
+                            animation: 1s;
                           
-                    }
+                    }                    
                 }
               }  
     p {
-        margin: 0;
+        margin: 0; /* Ajuste para que se vea un espacio entre el final de la sección y el footer */
     } 
     }
   }/* FIN MAIN */

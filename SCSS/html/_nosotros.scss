@@ -1,7 +1,7 @@
 @import "../abstracts/variables";
 @import "../abstracts/mixins";
 
-
+/* ------------------------------- ESTILOS DE LA HTML NOSOTROS ------------------------------- */  
 main {    
     .profContainer {
         /* Propiedades del contenedor de las imagenes de la sección */         
@@ -79,6 +79,9 @@ main {
     .h2Asociados { 
         @include myp(0, 10px);/* Mixin- Margin y Padding */
         color: $colorFontHover;
+        p {
+            @include myp(0,0);/* Mixin- Margin y Padding */
+        }
     }
     
     .containerMarca {
@@ -151,8 +154,7 @@ main {
                     /* Centrado de los logos */ 
                     display: flex;                
                     justify-content: center; 
-                    align-items: center; 
-                    
+                    align-items: center;                     
                 }
                 .logoImg { 
                     min-width: 30%;                

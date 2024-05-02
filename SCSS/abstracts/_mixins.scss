@@ -1,9 +1,10 @@
-/* Asignar Margin y Padding */
+/* Asigna Margin y Padding */
 @mixin myp ($margin, $padding){ /*Mixin de Margin y Padding*/
     margin: $margin;
     padding: $padding;
 } 
 
+/* Asignar Height y Width */
 @mixin hyw ($height, $width){ /*Mixin de Height y Width*/
     height: $height;
     width: $width;
